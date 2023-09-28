@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gustavo.DTO.PrenotazioneSalvataggioDTO;
 import com.gustavo.Service.PrenotazioneService;
 
-@RequestMapping("/prenotazione")
+@RequestMapping("/prenotazioni")
 @RestController
 
 public class PrenotazioneController {
@@ -21,7 +21,6 @@ public class PrenotazioneController {
 PrenotazioneService service;
 
 @PutMapping()
-@PreAuthorize("isAuthenticated()")
 public ResponseEntity<?> salvaOModificaPrenotazione(@RequestBody PrenotazioneSalvataggioDTO dto){
 	return new ResponseEntity<>(service.salvaOModifica(dto),HttpStatus.OK);
 }

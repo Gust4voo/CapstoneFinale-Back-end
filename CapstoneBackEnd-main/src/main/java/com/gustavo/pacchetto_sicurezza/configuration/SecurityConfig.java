@@ -59,10 +59,7 @@ public class SecurityConfig {
 
 		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-		http.authorizeHttpRequests(auth -> auth.requestMatchers("/users/**").authenticated());
-		http.authorizeHttpRequests(auth -> auth.requestMatchers("/gastronomia/**").authenticated());
-		http.authorizeHttpRequests(auth -> auth.requestMatchers("/prenotazioni/**").authenticated());
-		http.authorizeHttpRequests(auth -> auth.requestMatchers("/api/auth/**").permitAll());
+		http.authorizeHttpRequests(auth -> auth.requestMatchers("/**").permitAll());
 
 		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 		http.addFilterBefore(corsFilter, JwtAuthenticationFilter.class);
